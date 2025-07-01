@@ -24,8 +24,26 @@ public class SortingTechniques {
         printNums(nums);
     }
 
+    public static void selectionSort(int nums[]) {
+        int len = nums.length;
+        for (int i = 0; i < len; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < len; j++) {
+                if (nums[minIndex] > nums[j]) {
+                    minIndex = j;
+                }
+            }
+            int temp = nums[i];
+            nums[i] = nums[minIndex];
+            nums[minIndex] = temp;
+        }
+        printNums(nums);
+    }
+
     public static void main(String[] args) {
         int[] nums = { 10, 1, 45, 897, 3, 2, 14, 54, 23, 3, 5, 1, 0 };
         bubbleSort(nums);
+        System.out.println();
+        selectionSort(nums);
     }
 }
